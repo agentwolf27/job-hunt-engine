@@ -1,0 +1,12 @@
+{
+  "id": "firecrawl",
+  "name": "firecrawl",
+  "version": "0.1.1",
+  "apiVersion": 1,
+  "description": "Find openings the job-board APIs miss: Firecrawl web search for hiring posts, and structured reads of custom careers pages.",
+  "hooks": ["search", "provider"],
+  "requiredEnv": ["FIRECRAWL_API_KEY"],
+  "allowedHosts": ["api.firecrawl.dev"],
+  "skill": "skill.md",
+  "humanInTheLoop": true
+}

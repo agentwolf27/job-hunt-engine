@@ -1,0 +1,14 @@
+# career-ops is its own clone and holds the CV, profile and tracker. Never commit it here.
+career-ops/
+.env
+.env.*
+*.db
+data/fde_hits.json
+node_modules/
+__pycache__/
+.DS_Store
+graphify-out/
+.backup/
+logs/
+outreach/state/
+PROGRESS.md

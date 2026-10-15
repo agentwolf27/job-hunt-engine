@@ -1,0 +1,81 @@
+{
+ "jobs": [
+  {
+   "data": {
+    "slug": "87744",
+    "req_id": "87744",
+    "title": "Forward Deployed AI Research Scientist",
+    "city": "Santa Clara",
+    "state": "California",
+    "country": "United States",
+    "country_code": "US",
+    "full_location": "Santa Clara, California",
+    "posted_date": "2026-10-12T20:36:00+0000",
+    "apply_url": "https://careers-amd.icims.com/jobs/87744/login",
+    "employment_type": "FULL_TIME"
+   }
+  },
+  {
+   "data": {
+    "slug": "92543",
+    "req_id": "92543",
+    "title": "Lead Software Development Engineer",
+    "city": "Secaucus",
+    "state": "New Jersey",
+    "country": "United States",
+    "country_code": "US",
+    "full_location": "Secaucus, New Jersey",
+    "posted_date": "2026-10-06T18:39:00+0000",
+    "apply_url": "https://careers-amd.icims.com/jobs/92543/login",
+    "employment_type": "FULL_TIME"
+   }
+  },
+  {
+   "data": {
+    "slug": "92606",
+    "req_id": "92606",
+    "title": "Software Development Engineer - Networking",
+    "city": "Santa Clara",
+    "state": "California",
+    "country": "United States",
+    "country_code": "US",
+    "full_location": "Santa Clara, California",
+    "posted_date": "2026-10-05T20:57:00+0000",
+    "apply_url": "https://careers-amd.icims.com/jobs/92606/login",
+    "employment_type": "FULL_TIME"
+   }
+  },
+  {
+   "data": {
+    "slug": "93260",
+    "req_id": "93260",
+    "title": "Sr. Fellow - Software Architect - EDA Software Development",
+    "city": "San Jose",
+    "state": "California",
+    "country": "United States",
+    "country_code": "US",
+    "full_location": "San Jose, California",
+    "posted_date": "2026-10-05T19:39:00+0000",
+    "apply_url": "https://careers-amd.icims.com/jobs/93260/login",
+    "employment_type": "FULL_TIME"
+   }
+  },
+  {
+   "data": {
+    "slug": "93610",
+    "req_id": "93610",
+    "title": "Principal Mechanical Engineer",
+    "city": "San Jose",
+    "state": "California",
+    "country": "United States",
+    "country_code": "US",
+    "full_location": "San Jose, California",
+    "posted_date": "2026-10-12T23:46:00+0000",
+    "apply_url": "https://careers-amd.icims.com/jobs/93610/login",
+    "employment_type": "FULL_TIME"
+   }
+  }
+ ],
+ "totalCount": 659,
+ "count": 659
+}

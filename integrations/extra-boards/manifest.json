@@ -1,0 +1,11 @@
+{
+  "id": "extra-boards",
+  "name": "extra-boards",
+  "version": "0.1.1",
+  "apiVersion": 1,
+  "description": "Read three public job boards career-ops has no working provider for: Dover (Motorq), Jibe (AMD) and Eightfold's PCSX search (Qualcomm).",
+  "hooks": ["provider"],
+  "requiredEnv": [],
+  "allowedHosts": ["app.dover.com", "careers.amd.com", "careers.qualcomm.com"],
+  "humanInTheLoop": true
+}

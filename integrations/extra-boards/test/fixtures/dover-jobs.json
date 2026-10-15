@@ -1,0 +1,213 @@
+{
+ "count": 7,
+ "next": null,
+ "previous": null,
+ "results": [
+  {
+   "id": "68dc4cfe-db0c-4ecd-bea2-7f6b52496784",
+   "title": "Business Development Representative (BDR)",
+   "locations": [
+    {
+     "location_type": "HYBRID",
+     "location_option": {
+      "id": "bbf5a2da-ebc9-4fc5-943d-09cee1ecda67",
+      "display_name": "San Francisco, CA",
+      "location_type": "CITY",
+      "city": "San Francisco",
+      "state": "California",
+      "country": "US"
+     },
+     "name": "San Francisco, CA",
+     "is_primary": false
+    }
+   ],
+   "workplace_type": "HYBRID",
+   "is_published": true,
+   "is_sample": false
+  },
+  {
+   "id": "5eb0ab67-47ea-4c85-850c-9dc806f958dc",
+   "title": "Channel Sales Executive",
+   "locations": [
+    {
+     "location_type": "REMOTE",
+     "location_option": {
+      "id": "d5219789-8be5-4e1d-84ec-a9702c509e10",
+      "display_name": "United States",
+      "location_type": "COUNTRY",
+      "city": "",
+      "state": "",
+      "country": "US"
+     },
+     "name": "United States",
+     "is_primary": false
+    },
+    {
+     "location_type": "HYBRID",
+     "location_option": {
+      "id": "bbf5a2da-ebc9-4fc5-943d-09cee1ecda67",
+      "display_name": "San Francisco, CA",
+      "location_type": "CITY",
+      "city": "San Francisco",
+      "state": "California",
+      "country": "US"
+     },
+     "name": "San Francisco, CA",
+     "is_primary": false
+    }
+   ],
+   "workplace_type": "HYBRID",
+   "is_published": true,
+   "is_sample": false
+  },
+  {
+   "id": "61f7f2e7-ba90-477a-827f-33e047641070",
+   "title": "Forward Deployed Engineer ",
+   "locations": [
+    {
+     "location_type": "REMOTE",
+     "location_option": {
+      "id": "d5219789-8be5-4e1d-84ec-a9702c509e10",
+      "display_name": "United States",
+      "location_type": "COUNTRY",
+      "city": "",
+      "state": "",
+      "country": "US"
+     },
+     "name": "United States",
+     "is_primary": false
+    },
+    {
+     "location_type": "HYBRID",
+     "location_option": {
+      "id": "bbf5a2da-ebc9-4fc5-943d-09cee1ecda67",
+      "display_name": "San Francisco, CA",
+      "location_type": "CITY",
+      "city": "San Francisco",
+      "state": "California",
+      "country": "US"
+     },
+     "name": "San Francisco, CA",
+     "is_primary": false
+    }
+   ],
+   "workplace_type": "HYBRID",
+   "is_published": true,
+   "is_sample": false
+  },
+  {
+   "id": "56ffbb19-f060-40c7-9d83-8ceabe758d79",
+   "title": "Product Manager",
+   "locations": [
+    {
+     "location_type": "HYBRID",
+     "location_option": {
+      "id": "bbf5a2da-ebc9-4fc5-943d-09cee1ecda67",
+      "display_name": "San Francisco, CA",
+      "location_type": "CITY",
+      "city": "San Francisco",
+      "state": "California",
+      "country": "US"
+     },
+     "name": "San Francisco, CA",
+     "is_primary": true
+    },
+    {
+     "location_type": "HYBRID",
+     "location_option": {
+      "id": "16c7a8f3-9c21-4747-9c50-a71c2cf8434c",
+      "display_name": "Seattle, WA",
+      "location_type": "CITY",
+      "city": "Seattle",
+      "state": "Washington",
+      "country": "US"
+     },
+     "name": "Seattle, WA",
+     "is_primary": false
+    }
+   ],
+   "workplace_type": "HYBRID",
+   "is_published": true,
+   "is_sample": false
+  },
+  {
+   "id": "38a95cea-1db8-4eed-8758-88a8b0265089",
+   "title": "Product Manager - Platform",
+   "locations": [
+    {
+     "location_type": "HYBRID",
+     "location_option": {
+      "id": "bbf5a2da-ebc9-4fc5-943d-09cee1ecda67",
+      "display_name": "San Francisco, CA",
+      "location_type": "CITY",
+      "city": "San Francisco",
+      "state": "California",
+      "country": "US"
+     },
+     "name": "San Francisco, CA",
+     "is_primary": true
+    }
+   ],
+   "workplace_type": "HYBRID",
+   "is_published": true,
+   "is_sample": false
+  },
+  {
+   "id": "2a4097cb-71a0-4de2-bf2e-5e1e798c630e",
+   "title": "Strategic Customer Executive ",
+   "locations": [
+    {
+     "location_type": "REMOTE",
+     "location_option": {
+      "id": "d5219789-8be5-4e1d-84ec-a9702c509e10",
+      "display_name": "United States",
+      "location_type": "COUNTRY",
+      "city": "",
+      "state": "",
+      "country": "US"
+     },
+     "name": "United States",
+     "is_primary": false
+    },
+    {
+     "location_type": "HYBRID",
+     "location_option": {
+      "id": "bbf5a2da-ebc9-4fc5-943d-09cee1ecda67",
+      "display_name": "San Francisco, CA",
+      "location_type": "CITY",
+      "city": "San Francisco",
+      "state": "California",
+      "country": "US"
+     },
+     "name": "San Francisco, CA",
+     "is_primary": false
+    }
+   ],
+   "workplace_type": "HYBRID",
+   "is_published": true,
+   "is_sample": false
+  },
+  {
+   "id": "a0d564f3-1366-4364-8b5f-754e402e9881",
+   "title": "Technical Customer Success Manager (Central/East USA)",
+   "locations": [
+    {
+     "location_type": "REMOTE",
+     "location_option": {
+      "id": "d5219789-8be5-4e1d-84ec-a9702c509e10",
+      "display_name": "United States",
+      "location_type": "COUNTRY",
+      "city": "",
+      "state": "",
+      "country": "US"
+     },
+     "name": "United States",
+     "is_primary": false
+    }
+   ],
+   "workplace_type": "REMOTE",
+   "is_published": true,
+   "is_sample": false
+  }
+ ]
+}

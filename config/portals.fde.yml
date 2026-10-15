@@ -1,0 +1,780 @@
+# Scan list for career-ops: FDE, AI/ML and Data Engineer roles (early career). Merge these keys into career-ops/portals.yml.
+# Built 2026-10-01 from a live check of the Greenhouse, Ashby and Lever public APIs (scripts/fde_spike.py).
+# The counts in notes are FDE-type openings on that day.
+
+title_filter:
+  positive:
+  - Forward Deployed
+  - Deployed Engineer
+  - FDE
+  - Deployment Strategist
+  - Deployment Lead
+  - Applied AI Engineer
+  - Solutions Engineer
+  - Customer Engineer
+  - AI Engineer
+  - New Grad
+  - Early Career
+  - University Grad
+  - Entry Level
+  - Associate Software Engineer
+  - Data Engineer
+  - ML Engineer
+  - Machine Learning Engineer
+  - AI/ML Engineer
+  - AI/ML
+  - LLM Engineer
+  - GenAI Engineer
+  - Generative AI Engineer
+  - Applied ML
+  - Applied Scientist
+  - Software Engineer, AI
+  - Software Engineer, ML
+  - Software Engineer, Machine Learning
+  - Software Engineer, Data
+  # Entry-level titles at the named companies (added 2026-10-13). Kept narrow on purpose:
+  # scan.mjs has one title filter for every company, so each of these also applies to all of them.
+  # "a + b" means both must be in the title; "word:" means the phrase must end at a word boundary.
+  - college grad + software
+  - college grad + data
+  - college grad + machine learning
+  - college grad + ai
+  - college grad + automation
+  - college grad + analyst
+  - recent grad + software
+  - graduate + software engineer
+  - junior + software
+  - software engineer + associate
+  - Associate Software Developer
+  - word:software engineer i
+  - word:software engineer 1
+  - word:software developer i
+  - word:software development engineer i
+  - word:sde i
+  - software + 2026
+  - software + 2027
+  - front-end engineer + 2026
+  negative:
+  - Intern
+  - Recruiter
+  - Sales Development
+  - Account Executive
+  - Senior
+  - Sr.
+  - 'Sr '
+  - Staff
+  - Principal
+  - Lead
+  - Manager
+  - Director
+  - Head of
+  - VP
+  - Distinguished
+  - Architect
+  - ' III'
+  - ' IV'
+  - Co-op
+  - Coop
+search_queries:
+- name: FDE on ATS boards (web)
+  query: site:jobs.ashbyhq.com OR site:job-boards.greenhouse.io OR site:jobs.lever.co "Forward Deployed Engineer"
+  enabled: true
+tracked_companies:
+- name: databricks
+  careers_url: https://job-boards.greenhouse.io/databricks
+  api: https://boards-api.greenhouse.io/v1/boards/databricks/jobs
+  notes: greenhouse; 125 FDE-type openings on 2026-10-01
+  enabled: true
+- name: palantir
+  careers_url: https://jobs.lever.co/palantir
+  api: https://api.lever.co/v0/postings/palantir?mode=json
+  notes: lever; 114 FDE-type openings on 2026-10-01
+  enabled: true
+- name: openai
+  careers_url: https://jobs.ashbyhq.com/openai
+  api: https://api.ashbyhq.com/posting-api/job-board/openai
+  notes: ashby; 25 FDE-type openings on 2026-10-01
+  enabled: true
+- name: cohere
+  careers_url: https://jobs.ashbyhq.com/cohere
+  api: https://api.ashbyhq.com/posting-api/job-board/cohere
+  notes: ashby; 19 FDE-type openings on 2026-10-01
+  enabled: true
+- name: scaleai
+  careers_url: https://job-boards.greenhouse.io/scaleai
+  api: https://boards-api.greenhouse.io/v1/boards/scaleai/jobs
+  notes: greenhouse; 19 FDE-type openings on 2026-10-01
+  enabled: true
+- name: langchain
+  careers_url: https://jobs.ashbyhq.com/langchain
+  api: https://api.ashbyhq.com/posting-api/job-board/langchain
+  notes: ashby; 19 FDE-type openings on 2026-10-01
+  enabled: true
+- name: elevenlabs
+  careers_url: https://jobs.ashbyhq.com/elevenlabs
+  api: https://api.ashbyhq.com/posting-api/job-board/elevenlabs
+  notes: ashby; 17 FDE-type openings on 2026-10-01
+  enabled: true
+- name: cognition
+  careers_url: https://jobs.ashbyhq.com/cognition
+  api: https://api.ashbyhq.com/posting-api/job-board/cognition
+  notes: ashby; 15 FDE-type openings on 2026-10-01
+  enabled: true
+- name: rogo
+  careers_url: https://jobs.ashbyhq.com/rogo
+  api: https://api.ashbyhq.com/posting-api/job-board/rogo
+  notes: ashby; 15 FDE-type openings on 2026-10-01
+  enabled: true
+- name: cursor
+  careers_url: https://jobs.ashbyhq.com/cursor
+  api: https://api.ashbyhq.com/posting-api/job-board/cursor
+  notes: ashby; 10 FDE-type openings on 2026-10-01
+  enabled: true
+- name: notion
+  careers_url: https://jobs.ashbyhq.com/notion
+  api: https://api.ashbyhq.com/posting-api/job-board/notion
+  notes: ashby; 9 FDE-type openings on 2026-10-01
+  enabled: true
+- name: anthropic
+  careers_url: https://job-boards.greenhouse.io/anthropic
+  api: https://boards-api.greenhouse.io/v1/boards/anthropic/jobs
+  notes: greenhouse; 8 FDE-type openings on 2026-10-01
+  enabled: true
+- name: saronic
+  careers_url: https://jobs.ashbyhq.com/saronic
+  api: https://api.ashbyhq.com/posting-api/job-board/saronic
+  notes: ashby; 8 FDE-type openings on 2026-10-01
+  enabled: true
+- name: snowflake
+  careers_url: https://jobs.ashbyhq.com/snowflake
+  api: https://api.ashbyhq.com/posting-api/job-board/snowflake
+  notes: ashby; 6 FDE-type openings on 2026-10-01
+  enabled: true
+- name: hightouch
+  careers_url: https://job-boards.greenhouse.io/hightouch
+  api: https://boards-api.greenhouse.io/v1/boards/hightouch/jobs
+  notes: greenhouse; 5 FDE-type openings on 2026-10-01
+  enabled: true
+- name: stripe
+  careers_url: https://job-boards.greenhouse.io/stripe
+  api: https://boards-api.greenhouse.io/v1/boards/stripe/jobs
+  notes: greenhouse; 5 FDE-type openings on 2026-10-01
+  enabled: true
+- name: modal
+  careers_url: https://jobs.ashbyhq.com/modal
+  api: https://api.ashbyhq.com/posting-api/job-board/modal
+  notes: ashby; 4 FDE-type openings on 2026-10-01
+  enabled: true
+- name: shieldai
+  careers_url: https://jobs.lever.co/shieldai
+  api: https://api.lever.co/v0/postings/shieldai?mode=json
+  notes: lever; 4 FDE-type openings on 2026-10-01
+  enabled: true
+- name: deepgram
+  careers_url: https://jobs.ashbyhq.com/deepgram
+  api: https://api.ashbyhq.com/posting-api/job-board/deepgram
+  notes: ashby; 3 FDE-type openings on 2026-10-01
+  enabled: true
+- name: eudia
+  careers_url: https://job-boards.greenhouse.io/eudia
+  api: https://boards-api.greenhouse.io/v1/boards/eudia/jobs
+  notes: greenhouse; 3 FDE-type openings on 2026-10-01
+  enabled: true
+- name: ramp
+  careers_url: https://jobs.ashbyhq.com/ramp
+  api: https://api.ashbyhq.com/posting-api/job-board/ramp
+  notes: ashby; 2 FDE-type openings on 2026-10-01
+  enabled: true
+- name: baseten
+  careers_url: https://jobs.ashbyhq.com/baseten
+  api: https://api.ashbyhq.com/posting-api/job-board/baseten
+  notes: ashby; 2 FDE-type openings on 2026-10-01
+  enabled: true
+- name: brex
+  careers_url: https://job-boards.greenhouse.io/brex
+  api: https://boards-api.greenhouse.io/v1/boards/brex/jobs
+  notes: greenhouse; 2 FDE-type openings on 2026-10-01
+  enabled: true
+- name: zip
+  careers_url: https://jobs.ashbyhq.com/zip
+  api: https://api.ashbyhq.com/posting-api/job-board/zip
+  notes: ashby; 2 FDE-type openings on 2026-10-01
+  enabled: true
+- name: campfire
+  careers_url: https://jobs.ashbyhq.com/campfire
+  api: https://api.ashbyhq.com/posting-api/job-board/campfire
+  notes: ashby; 2 FDE-type openings on 2026-10-01
+  enabled: true
+- name: replit
+  careers_url: https://jobs.ashbyhq.com/replit
+  api: https://api.ashbyhq.com/posting-api/job-board/replit
+  notes: ashby; 1 FDE-type openings on 2026-10-01
+  enabled: true
+- name: vercel
+  careers_url: https://job-boards.greenhouse.io/vercel
+  api: https://boards-api.greenhouse.io/v1/boards/vercel/jobs
+  notes: greenhouse; 1 FDE-type openings on 2026-10-01
+  enabled: true
+- name: figma
+  careers_url: https://job-boards.greenhouse.io/figma
+  api: https://boards-api.greenhouse.io/v1/boards/figma/jobs
+  notes: greenhouse; 1 FDE-type openings on 2026-10-01
+  enabled: true
+- name: tavus
+  careers_url: https://jobs.ashbyhq.com/tavus
+  api: https://api.ashbyhq.com/posting-api/job-board/tavus
+  notes: ashby; 1 FDE-type openings on 2026-10-01
+  enabled: true
+- name: vapi
+  careers_url: https://jobs.ashbyhq.com/vapi
+  api: https://api.ashbyhq.com/posting-api/job-board/vapi
+  notes: ashby; 1 FDE-type openings on 2026-10-01
+  enabled: true
+- name: abridge
+  careers_url: https://jobs.ashbyhq.com/abridge
+  api: https://api.ashbyhq.com/posting-api/job-board/abridge
+  notes: ashby; 1 FDE-type openings on 2026-10-01
+  enabled: true
+- name: tennr
+  careers_url: https://jobs.ashbyhq.com/tennr
+  api: https://api.ashbyhq.com/posting-api/job-board/tennr
+  notes: ashby; 1 FDE-type openings on 2026-10-01
+  enabled: true
+- name: legora
+  careers_url: https://jobs.ashbyhq.com/legora
+  api: https://api.ashbyhq.com/posting-api/job-board/legora
+  notes: ashby; 1 FDE-type openings on 2026-10-01
+  enabled: true
+- name: neon
+  careers_url: https://jobs.ashbyhq.com/neon
+  api: https://api.ashbyhq.com/posting-api/job-board/neon
+  notes: ashby; 1 FDE-type openings on 2026-10-01
+  enabled: true
+- name: render
+  careers_url: https://jobs.ashbyhq.com/render
+  api: https://api.ashbyhq.com/posting-api/job-board/render
+  notes: ashby; 1 FDE-type openings on 2026-10-01
+  enabled: true
+- name: materialize
+  careers_url: https://jobs.ashbyhq.com/materialize
+  api: https://api.ashbyhq.com/posting-api/job-board/materialize
+  notes: ashby; 1 FDE-type openings on 2026-10-01
+  enabled: true
+- name: openrouter
+  careers_url: https://jobs.ashbyhq.com/openrouter
+  api: https://api.ashbyhq.com/posting-api/job-board/openrouter
+  notes: ashby; 1 FDE-type openings on 2026-10-01
+  enabled: true
+- name: Airbnb
+  careers_url: https://job-boards.greenhouse.io/airbnb
+  api: https://boards-api.greenhouse.io/v1/boards/airbnb/jobs
+  notes: added company
+  enabled: true
+- name: Attentive
+  careers_url: https://job-boards.greenhouse.io/attentive
+  api: https://boards-api.greenhouse.io/v1/boards/attentive/jobs
+  notes: added company
+  enabled: true
+- name: CardFlight
+  careers_url: https://jobs.ashbyhq.com/cardflight
+  api: https://api.ashbyhq.com/posting-api/job-board/cardflight
+  notes: added company
+  enabled: true
+- name: Block (Cash App)
+  careers_url: https://job-boards.greenhouse.io/block
+  api: https://boards-api.greenhouse.io/v1/boards/block/jobs
+  notes: added company
+  enabled: true
+- name: Circle
+  careers_url: https://jobs.ashbyhq.com/circle
+  api: https://api.ashbyhq.com/posting-api/job-board/circle
+  notes: added company
+  enabled: true
+- name: Citizen
+  careers_url: https://jobs.ashbyhq.com/citizen
+  api: https://api.ashbyhq.com/posting-api/job-board/citizen
+  notes: added company
+  enabled: true
+- name: Coinbase
+  careers_url: https://job-boards.greenhouse.io/coinbase
+  api: https://boards-api.greenhouse.io/v1/boards/coinbase/jobs
+  notes: added company
+  enabled: true
+- name: Forward Networks
+  careers_url: https://job-boards.greenhouse.io/forwardnetworks
+  api: https://boards-api.greenhouse.io/v1/boards/forwardnetworks/jobs
+  notes: added company
+  enabled: true
+- name: Hopper
+  careers_url: https://jobs.ashbyhq.com/hopper
+  api: https://api.ashbyhq.com/posting-api/job-board/hopper
+  notes: added company
+  enabled: true
+- name: Liftoff
+  careers_url: https://job-boards.greenhouse.io/liftoff
+  api: https://boards-api.greenhouse.io/v1/boards/liftoff/jobs
+  notes: added company
+  enabled: true
+- name: Lyft
+  careers_url: https://job-boards.greenhouse.io/lyft
+  api: https://boards-api.greenhouse.io/v1/boards/lyft/jobs
+  notes: added company
+  enabled: true
+- name: Roblox
+  careers_url: https://job-boards.greenhouse.io/roblox
+  api: https://boards-api.greenhouse.io/v1/boards/roblox/jobs
+  notes: added company
+  enabled: true
+- name: Samsung Research America
+  careers_url: https://job-boards.greenhouse.io/samsungresearchamerica
+  api: https://boards-api.greenhouse.io/v1/boards/samsungresearchamerica/jobs
+  notes: added company
+  enabled: true
+- name: Sentry
+  careers_url: https://jobs.ashbyhq.com/sentry
+  api: https://api.ashbyhq.com/posting-api/job-board/sentry
+  notes: added company
+  enabled: true
+- name: SoFi
+  careers_url: https://job-boards.greenhouse.io/sofi
+  api: https://boards-api.greenhouse.io/v1/boards/sofi/jobs
+  notes: added company
+  enabled: true
+- name: Sumo Logic
+  careers_url: https://job-boards.greenhouse.io/sumologic
+  api: https://boards-api.greenhouse.io/v1/boards/sumologic/jobs
+  notes: added company
+  enabled: true
+- name: Upstart
+  careers_url: https://job-boards.greenhouse.io/upstart
+  api: https://boards-api.greenhouse.io/v1/boards/upstart/jobs
+  notes: added company
+  enabled: true
+- name: DoorDash
+  careers_url: https://job-boards.greenhouse.io/doordashusa
+  api: https://boards-api.greenhouse.io/v1/boards/doordashusa/jobs
+  notes: added company
+  enabled: true
+- name: Rippling
+  careers_url: https://ats.rippling.com/rippling/jobs
+  notes: added company
+  enabled: true
+- name: JPMorgan Chase
+  careers_url: https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1002/jobs
+  provider: oraclecloud
+  siteNumber: CX_1002
+  max_pages: 25
+  notes: added company
+  enabled: true
+- name: Google
+  careers_url: https://careers.google.com
+  scan_method: websearch
+  scan_query: site:careers.google.com ("New Grad" OR "Early Career" OR "Forward Deployed" OR "AI Engineer" OR "Solutions Engineer") "United States"
+  notes: big-company careers site, scanned by web search
+  enabled: true
+- name: Apple
+  careers_url: https://jobs.apple.com
+  scan_method: websearch
+  scan_query: site:jobs.apple.com ("New Grad" OR "Early Career" OR "Forward Deployed" OR "AI Engineer" OR "Solutions Engineer") "United States"
+  notes: big-company careers site, scanned by web search
+  enabled: true
+- name: Microsoft
+  careers_url: https://careers.microsoft.com
+  scan_method: websearch
+  scan_query: site:careers.microsoft.com ("New Grad" OR "Early Career" OR "Forward Deployed" OR "AI Engineer" OR "Solutions Engineer") "United States"
+  notes: big-company careers site, scanned by web search
+  enabled: true
+- name: Meta
+  careers_url: https://metacareers.com
+  scan_method: websearch
+  scan_query: site:metacareers.com ("New Grad" OR "Early Career" OR "Forward Deployed" OR "AI Engineer" OR "Solutions Engineer") "United States"
+  notes: big-company careers site, scanned by web search
+  enabled: true
+- name: Uber
+  careers_url: https://uber.com/careers
+  scan_method: websearch
+  scan_query: site:uber.com/careers ("New Grad" OR "Early Career" OR "Forward Deployed" OR "AI Engineer" OR "Solutions Engineer") "United States"
+  notes: big-company careers site, scanned by web search
+  enabled: true
+- name: Netflix
+  careers_url: https://jobs.netflix.com
+  scan_method: websearch
+  scan_query: site:jobs.netflix.com ("New Grad" OR "Early Career" OR "Forward Deployed" OR "AI Engineer" OR "Solutions Engineer") "United States"
+  notes: big-company careers site, scanned by web search
+  enabled: true
+- name: Oracle
+  careers_url: https://careers.oracle.com
+  scan_method: websearch
+  scan_query: site:careers.oracle.com ("New Grad" OR "Early Career" OR "Forward Deployed" OR "AI Engineer" OR "Solutions Engineer") "United States"
+  notes: big-company careers site, scanned by web search
+  enabled: true
+- name: Cisco
+  careers_url: https://jobs.cisco.com
+  scan_method: websearch
+  scan_query: site:jobs.cisco.com ("New Grad" OR "Early Career" OR "Forward Deployed" OR "AI Engineer" OR "Solutions Engineer") "United States"
+  notes: big-company careers site, scanned by web search
+  enabled: true
+- name: Bloomberg
+  careers_url: https://bloomberg.avature.net/careers
+  api: https://bloomberg.avature.net/careers/SearchJobs?search=software+engineer
+  max_pages: 15
+  provider: avature
+  watchlist: Bloomberg
+  notes: named company; Bloomberg's careers site runs on Avature (bloomberg.avature.net), searched for "software engineer"
+  enabled: true
+- name: Goldman Sachs
+  careers_url: https://goldmansachs.com/careers
+  scan_method: websearch
+  scan_query: site:goldmansachs.com/careers ("New Grad" OR "Early Career" OR "Forward Deployed" OR "AI Engineer" OR "Solutions Engineer") "United States"
+  notes: big-company careers site, scanned by web search
+  enabled: true
+- name: Morgan Stanley
+  careers_url: https://morganstanley.com/careers
+  scan_method: websearch
+  scan_query: site:morganstanley.com/careers ("New Grad" OR "Early Career" OR "Forward Deployed" OR "AI Engineer" OR "Solutions Engineer") "United States"
+  notes: big-company careers site, scanned by web search
+  enabled: true
+- name: American Express
+  careers_url: https://aexp.com
+  scan_method: websearch
+  scan_query: site:aexp.com ("New Grad" OR "Early Career" OR "Forward Deployed" OR "AI Engineer" OR "Solutions Engineer") "United States"
+  notes: big-company careers site, scanned by web search
+  enabled: true
+- name: Nutanix
+  careers_url: https://nutanix.com/company/careers
+  scan_method: websearch
+  scan_query: site:nutanix.com/company/careers ("New Grad" OR "Early Career" OR "Forward Deployed" OR "AI Engineer" OR "Solutions Engineer") "United States"
+  notes: big-company careers site, scanned by web search
+  enabled: true
+- name: T-Mobile
+  careers_url: https://careers.t-mobile.com
+  scan_method: websearch
+  scan_query: site:careers.t-mobile.com ("New Grad" OR "Early Career" OR "Forward Deployed" OR "AI Engineer" OR "Solutions Engineer") "United States"
+  notes: big-company careers site, scanned by web search
+  enabled: true
+- name: DocuSign
+  careers_url: https://careers.docusign.com
+  scan_method: websearch
+  scan_query: site:careers.docusign.com ("New Grad" OR "Early Career" OR "Forward Deployed" OR "AI Engineer" OR "Solutions Engineer") "United States"
+  notes: big-company careers site, scanned by web search
+  enabled: true
+- name: Remitly
+  careers_url: https://remitly.com/careers
+  scan_method: websearch
+  scan_query: site:remitly.com/careers ("New Grad" OR "Early Career" OR "Forward Deployed" OR "AI Engineer" OR "Solutions Engineer") "United States"
+  notes: big-company careers site, scanned by web search
+  enabled: true
+- name: Chronosphere
+  careers_url: https://chronosphere.io/careers
+  scan_method: websearch
+  scan_query: site:chronosphere.io/careers ("New Grad" OR "Early Career" OR "Forward Deployed" OR "AI Engineer" OR "Solutions Engineer") "United States"
+  notes: big-company careers site, scanned by web search
+  enabled: true
+- name: MathWorks
+  careers_url: https://mathworks.com/company/jobs
+  scan_method: websearch
+  scan_query: site:mathworks.com/company/jobs ("New Grad" OR "Early Career" OR "Forward Deployed" OR "AI Engineer" OR "Solutions Engineer") "United States"
+  notes: big-company careers site, scanned by web search
+  enabled: true
+- name: Lam Research
+  careers_url: https://careers.lamresearch.com
+  scan_method: websearch
+  scan_query: site:careers.lamresearch.com ("New Grad" OR "Early Career" OR "Forward Deployed" OR "AI Engineer" OR "Solutions Engineer") "United States"
+  notes: big-company careers site, scanned by web search
+  enabled: true
+- name: Valve
+  careers_url: https://valvesoftware.com/jobs
+  scan_method: websearch
+  scan_query: site:valvesoftware.com/jobs ("New Grad" OR "Early Career" OR "Forward Deployed" OR "AI Engineer" OR "Solutions Engineer") "United States"
+  notes: big-company careers site, scanned by web search
+  enabled: true
+- name: FIS
+  careers_url: https://careers.fisglobal.com
+  scan_method: websearch
+  scan_query: site:careers.fisglobal.com ("New Grad" OR "Early Career" OR "Forward Deployed" OR "AI Engineer" OR "Solutions Engineer") "United States"
+  notes: big-company careers site, scanned by web search
+  enabled: true
+- name: Quizizz
+  careers_url: https://quizizz.com/careers
+  scan_method: websearch
+  scan_query: site:quizizz.com/careers ("New Grad" OR "Early Career" OR "Forward Deployed" OR "AI Engineer" OR "Solutions Engineer") "United States"
+  notes: big-company careers site, scanned by web search
+  enabled: true
+- name: HubSpot
+  careers_url: https://hubspot.com/careers
+  scan_method: websearch
+  scan_query: site:hubspot.com/careers ("New Grad" OR "Early Career" OR "Forward Deployed" OR "AI Engineer" OR "Solutions Engineer") "United States"
+  notes: big-company careers site, scanned by web search
+  enabled: true
+- name: Whatnot
+  careers_url: https://whatnot.com/careers
+  scan_method: websearch
+  scan_query: site:whatnot.com/careers ("New Grad" OR "Early Career" OR "Forward Deployed" OR "AI Engineer" OR "Solutions Engineer") "United States"
+  notes: big-company careers site, scanned by web search
+  enabled: true
+- name: LinkedIn
+  careers_url: https://careers.linkedin.com
+  scan_method: websearch
+  scan_query: site:careers.linkedin.com ("New Grad" OR "Early Career" OR "Forward Deployed" OR "AI Engineer" OR "Solutions Engineer") "United States"
+  notes: big-company careers site, scanned by web search
+  enabled: true
+# Named companies (the morning tracker; see ARCHITECTURE.md). `watchlist:` is the company name
+# scripts/check-watchlist.mjs reports under; every one of these is checked each morning.
+- name: Qualcomm
+  careers_url: https://careers.qualcomm.com/careers
+  provider: extra-boards
+  board: pcsx
+  pcsx:
+    domain: qualcomm.com
+    location: United States
+    max_pages: 2
+    searches:
+    - filters:
+        seniority: Entry
+        job_family: software engineering
+    - filters:
+        seniority: Entry
+        job_family: machine learning engineering
+    - query: college graduate
+    - query: new college grad
+  watchlist: Qualcomm
+  notes: named company; Eightfold PCSX search through integrations/extra-boards (the eightfold provider's API is refused here)
+  enabled: true
+- name: WHOOP
+  careers_url: https://jobs.ashbyhq.com/whoop
+  api: https://api.ashbyhq.com/posting-api/job-board/whoop
+  watchlist: WHOOP
+  notes: named company; ashby
+  enabled: true
+- name: Applied Materials
+  careers_url: https://amat.wd1.myworkdayjobs.com/External
+  max_pages: 2
+  watchlist: Applied Materials
+  notes: named company; workday, newest postings only (the board is past 2,000 and the workday provider has no keyword search)
+  enabled: true
+- name: Fidelity Investments
+  careers_url: https://fmr.wd1.myworkdayjobs.com/FidelityCareers
+  max_pages: 10
+  watchlist: Fidelity
+  notes: named company; workday, newest 200 postings (the workday provider has no keyword search)
+  enabled: true
+- name: Motorq
+  careers_url: https://app.dover.com/jobs/motorq
+  provider: extra-boards
+  board: dover
+  dover:
+    slug: motorq
+  watchlist: Motorq
+  notes: named company; Dover careers page through integrations/extra-boards
+  enabled: true
+- name: AMD
+  careers_url: https://careers.amd.com/careers-home/jobs
+  provider: extra-boards
+  board: jibe
+  jibe:
+    country: United States
+    job_path: careers-home/jobs
+    max_pages: 8
+  watchlist: AMD
+  notes: named company; careers.amd.com/api/jobs through integrations/extra-boards, every US posting
+  enabled: true
+- name: Siemens
+  careers_url: https://jobs.siemens.com/en_US/externaljobs
+  api: https://jobs.siemens.com/en_US/externaljobs/SearchJobs/?search=%22software+engineer%22&42386%5B%5D=812209&listFilterMode=1
+  provider: avature
+  max_pages: 10
+  watchlist: Siemens
+  notes: named company; Avature, United States, searched for "software engineer"
+  enabled: true
+- name: Siemens Healthineers
+  careers_url: https://careers.siemens-healthineers.com
+  provider: phenom
+  phenom:
+    selectedFields:
+      country:
+      - United States of America
+  watchlist: Siemens
+  notes: named company; Phenom, United States
+  enabled: true
+location_filter:
+  always_allow:
+  - United States
+  - USA
+  allow:
+  - Remote
+  - US
+  - Multiple Locations
+  - San Francisco
+  - SF
+  - Bay Area
+  - New York
+  - NYC
+  - Seattle
+  - Los Angeles
+  - Palo Alto
+  - Mountain View
+  - Austin
+  - Boston
+  - Chicago
+  - Denver
+  - Atlanta
+  - Washington
+  - Miami
+  block:
+  - India
+  - Bengaluru
+  - Bangalore
+  - United Kingdom
+  - UK
+  - London
+  - Ireland
+  - Dublin
+  - Germany
+  - Munich
+  - Berlin
+  - France
+  - Paris
+  - Spain
+  - Barcelona
+  - Madrid
+  - Switzerland
+  - Zurich
+  - Netherlands
+  - Amsterdam
+  - Canada
+  - Toronto
+  - Singapore
+  - Japan
+  - Tokyo
+  - Korea
+  - Seoul
+  - China
+  - Hong Kong
+  - Australia
+  - Sydney
+  - UAE
+  - Abu Dhabi
+  - Dubai
+  - Brazil
+  - Mexico
+  - Thailand
+  - Bangkok
+  - Israel
+  - Tel Aviv
+  - Poland
+  - Italy
+  - Sweden
+  - Greece
+  - Colombia
+  - Europe
+  - European Union
+  - EMEA
+  - LATAM
+  - Latin America
+  - Argentina
+  - Chile
+  - Peru
+  - Portugal
+  - Romania
+  - Czech
+  - Hungary
+  - Ukraine
+  - Serbia
+  - Philippines
+  - Vietnam
+  - Indonesia
+  - Malaysia
+  - Nigeria
+  - Kenya
+  - South Africa
+  - Egypt
+  - Turkey
+  - Pakistan
+  - APAC
+  block_hard:
+  - India
+  - China
+  - Japan
+  - Singapore
+  - Australia
+  - Greece
+  - Colombia
+  - European Union
+  - LATAM
+job_boards:
+- name: Amazon (US, generative AI)
+  provider: amazon
+  amazon:
+    normalized_country_code:
+    - USA
+    base_query: generative AI
+  enabled: true
+- name: Amazon (US, early career)
+  provider: amazon
+  amazon:
+    normalized_country_code:
+    - USA
+    base_query: early career
+  watchlist: Amazon
+  enabled: true
+- name: Amazon (US, software, 2026 graduates)
+  provider: amazon
+  amazon:
+    normalized_country_code:
+    - USA
+    base_query: '2026'
+    category:
+    - software-development
+  watchlist: Amazon
+  enabled: true
+- name: Amazon (US, Twitch)
+  provider: amazon
+  amazon:
+    normalized_country_code:
+    - USA
+    base_query: Twitch
+  watchlist: Amazon
+  enabled: true
+- name: Amazon (US, Audible)
+  provider: amazon
+  amazon:
+    normalized_country_code:
+    - USA
+    base_query: Audible
+  watchlist: Amazon
+  enabled: true
+- name: IBM (US software)
+  provider: ibm
+  ibm:
+    country: United States
+    categories:
+    - Software Engineering
+  enabled: true
+overrides:
+  Temporal:
+    careers_url: https://jobs.ashbyhq.com/temporal
+    api: https://api.ashbyhq.com/posting-api/job-board/temporal
+  RunPod:
+    careers_url: https://jobs.ashbyhq.com/runpod
+    api: https://api.ashbyhq.com/posting-api/job-board/runpod
+  Tinybird:
+    careers_url: https://jobs.lever.co/tinybird
+    api: https://api.lever.co/v0/postings/tinybird?mode=json
+  Clarity AI:
+    careers_url: https://job-boards.eu.greenhouse.io/clarityai
+    api: https://boards-api.greenhouse.io/v1/boards/clarityai/jobs
+  Black Forest Labs:
+    careers_url: https://jobs.ashbyhq.com/black-forest-labs
+    api: https://api.ashbyhq.com/posting-api/job-board/black-forest-labs
+  Runway:
+    enabled: false
+  Ada:
+    enabled: false
+  Lindy:
+    enabled: false
+  Templafy:
+    enabled: false
+  Sanctuary AI:
+    enabled: false
+  Wayve:
+    enabled: false

@@ -1,0 +1,147 @@
+{
+ "status": 200,
+ "error": {
+  "message": "",
+  "body": ""
+ },
+ "data": {
+  "positions": [
+   {
+    "id": 446716204241,
+    "displayJobId": "3084488",
+    "name": "AI TLM Performance Modeling",
+    "locations": [
+     "San Diego, California, United States of America"
+    ],
+    "standardizedLocations": [
+     "San Diego, CA, US"
+    ],
+    "postedTs": 1790294400,
+    "solrScore": null,
+    "stars": 0,
+    "department": "Machine Learning Engineering",
+    "creationTs": 1768176000,
+    "isHot": 0,
+    "workLocationOption": "onsite",
+    "locationFlexibility": null,
+    "atsJobId": "3084488",
+    "positionUrl": "/careers/job/446716204241"
+   },
+   {
+    "id": 446719838414,
+    "displayJobId": "3093957",
+    "name": "Machine Learning R&D",
+    "locations": [
+     "San Diego, California, United States of America"
+    ],
+    "standardizedLocations": [
+     "San Diego, CA, US"
+    ],
+    "postedTs": 1789603200,
+    "solrScore": null,
+    "stars": 0,
+    "department": "Machine Learning Engineering",
+    "creationTs": 1783987200,
+    "isHot": 0,
+    "workLocationOption": "onsite",
+    "locationFlexibility": null,
+    "atsJobId": "3093957",
+    "positionUrl": "/careers/job/446719838414"
+   },
+   {
+    "id": 446717346550,
+    "displayJobId": "3087281",
+    "name": "Machine Learning Compiler Engineer",
+    "locations": [
+     "New York City, New York, United States of America"
+    ],
+    "standardizedLocations": [
+     "New York, NY, US"
+    ],
+    "postedTs": 1789603200,
+    "solrScore": null,
+    "stars": 0,
+    "department": "Machine Learning Engineering",
+    "creationTs": 1772409600,
+    "isHot": 0,
+    "workLocationOption": "onsite",
+    "locationFlexibility": null,
+    "atsJobId": "3087281",
+    "positionUrl": "/careers/job/446717346550"
+   },
+   {
+    "id": 446717859953,
+    "displayJobId": "3089336",
+    "name": "Machine Learning Engineer - College Graduate",
+    "locations": [
+     "San Diego, California, United States of America"
+    ],
+    "standardizedLocations": [
+     "San Diego, CA, US"
+    ],
+    "postedTs": 1789603200,
+    "solrScore": null,
+    "stars": 0,
+    "department": "Machine Learning Engineering",
+    "creationTs": 1775606400,
+    "isHot": 0,
+    "workLocationOption": "onsite",
+    "locationFlexibility": null,
+    "atsJobId": "3089336",
+    "positionUrl": "/careers/job/446717859953"
+   },
+   {
+    "id": 446707518930,
+    "displayJobId": "3078912",
+    "name": "Artificial Intelligence for Video Compression - Research Scientist",
+    "locations": [
+     "San Diego, California, United States of America",
+     "Hsinchu City, Taiwan",
+     "Munich, Germany"
+    ],
+    "standardizedLocations": [
+     "San Diego, CA, US",
+     "Hsinchu, Hsinchu City, TW",
+     "Munich, BY, DE"
+    ],
+    "postedTs": 1784246400,
+    "solrScore": null,
+    "stars": 0,
+    "department": "Machine Learning Engineering",
+    "creationTs": 1756080000,
+    "isHot": 0,
+    "workLocationOption": "onsite",
+    "locationFlexibility": null,
+    "atsJobId": "3078912",
+    "positionUrl": "/careers/job/446707518930"
+   },
+   {
+    "id": 446716256165,
+    "displayJobId": "3084726",
+    "name": "Senior AI Performance Architect",
+    "locations": [
+     "Raleigh, North Carolina, United States of America",
+     "San Diego, California, United States of America",
+     "Santa Clara, California, United States of America"
+    ],
+    "standardizedLocations": [
+     "Raleigh, NC, US",
+     "San Diego, CA, US",
+     "Santa Clara, CA, US"
+    ],
+    "postedTs": 1768694400,
+    "solrScore": null,
+    "stars": 0,
+    "department": "Machine Learning Engineering",
+    "creationTs": 1768694400,
+    "isHot": 0,
+    "workLocationOption": "onsite",
+    "locationFlexibility": "flexible_within_country",
+    "atsJobId": "3084726",
+    "positionUrl": "/careers/job/446716256165"
+   }
+  ],
+  "count": 6,
+  "sortBy": "timestamp"
+ }
+}

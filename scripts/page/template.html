@@ -1,0 +1,234 @@
+<title>Morning Tracker</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: one narrow column, an inbox. Age banner, counts, then what needs attention, then everything else folded. */
+:root {
+  --bg: #f2f4f8; --surface: #ffffff; --ink: #17212e; --muted: #586577; --line: #d7dde6;
+  --accent: #2847c9; --accent-ink: #ffffff; --accent-soft: #e6ebfb;
+  --good: #1c7448; --good-soft: #e2f3ea; --warn: #8f5a00; --warn-soft: #fbf0d9; --bad: #b3261e; --bad-soft: #fbe6e4;
+  --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0f141b; --surface: #171f29; --ink: #e6ebf2; --muted: #96a3b4; --line: #2a3543;
+  --accent: #8ea6ff; --accent-ink: #0f141b; --accent-soft: #1d2740;
+  --good: #62d19c; --good-soft: #14291f; --warn: #e9b65d; --warn-soft: #2c2412; --bad: #ff8d83; --bad-soft: #331a18;
+  color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0f141b; --surface: #171f29; --ink: #e6ebf2; --muted: #96a3b4; --line: #2a3543;
+  --accent: #8ea6ff; --accent-ink: #0f141b; --accent-soft: #1d2740;
+  --good: #62d19c; --good-soft: #14291f; --warn: #e9b65d; --warn-soft: #2c2412; --bad: #ff8d83; --bad-soft: #331a18;
+  color-scheme: dark }
+body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 760px; margin: 0 auto; padding-inline: 16px; padding-block: 20px 56px; display: flex; flex-direction: column; gap: 16px; }
+h1 { font-size: 22px; font-weight: 600; margin: 0; letter-spacing: -0.01em; }
+h2 { font-size: 16px; font-weight: 600; margin: 0; text-wrap: balance; }
+h3 { font-size: 16px; font-weight: 600; margin: 0; line-height: 1.3; text-wrap: balance; }
+h4 { font-size: 11px; font-weight: 600; margin: 12px 0 4px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); }
+p { margin: 0; }
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.top .sub { color: var(--muted); font-size: 13px; }
+#app { display: flex; flex-direction: column; gap: 16px; }
+.muted { color: var(--muted); font-size: 13px; }
+.label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin-right: 4px; }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+
+.banner { padding: 12px 14px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); }
+.banner-text { font-weight: 600; }
+.banner-detail { font-size: 13px; margin-top: 2px; }
+.banner.ok { border-color: var(--good); background: var(--good-soft); }
+.banner.ok .banner-text { color: var(--good); }
+.banner.stale, .banner.failed { border-color: var(--bad); background: var(--bad-soft); }
+.banner.stale .banner-text, .banner.failed .banner-text { color: var(--bad); font-size: 17px; }
+
+.alert { border: 1px solid var(--warn); background: var(--warn-soft); border-radius: 8px; padding: 12px 14px; display: flex; flex-direction: column; gap: 6px; }
+.alert h2 { color: var(--warn); }
+
+.strip { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.stat { background: var(--surface); padding: 10px 6px; display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 0; }
+.stat .n { font-family: var(--mono); font-size: 20px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.stat .k { font-size: 11px; color: var(--muted); overflow-wrap: anywhere; text-align: center; }
+@media (max-width: 480px) { .strip { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+.sec-head, .group > summary { display: flex; align-items: center; gap: 8px; }
+.count { font-family: var(--mono); font-size: 12px; color: var(--muted); border: 1px solid var(--line); border-radius: 99px; padding: 0 8px; background: var(--surface); }
+.todo { display: flex; flex-direction: column; gap: 10px; }
+.empty { padding: 18px 14px; border: 1px dashed var(--line); border-radius: 8px; color: var(--muted); }
+.group { border-top: 1px solid var(--line); padding-top: 12px; }
+.group > summary { cursor: pointer; list-style: none; padding-block: 4px; }
+.group > summary::-webkit-details-marker { display: none; }
+.group > summary::before { content: "+"; font-family: var(--mono); color: var(--muted); width: 12px; }
+.group[open] > summary::before { content: "−"; }
+.group[open] > summary { margin-bottom: 10px; }
+.group > .card + .card, .todo > .card + .card { margin-top: 0; }
+.group { display: block; }
+.group > .card { margin-bottom: 10px; }
+
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.card.is-pending { border-color: var(--warn); }
+.card > header { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; flex-wrap: wrap; }
+.who { min-width: 0; flex: 1 1 220px; }
+.company { font-size: 13px; color: var(--muted); font-weight: 500; }
+.state { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.score { font-family: var(--mono); font-size: 13px; font-variant-numeric: tabular-nums; color: var(--muted); }
+.pill { display: inline-block; font-size: 12px; font-weight: 600; padding: 1px 9px; border-radius: 99px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); white-space: nowrap; }
+.pill.s-applied, .pill.s-responded { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+.pill.s-interview, .pill.s-offer { background: var(--good-soft); border-color: var(--good); color: var(--good); }
+.pill.s-rejected, .pill.s-discarded, .pill.s-skip { color: var(--muted); }
+.pill.pending { background: var(--warn-soft); border-color: var(--warn); color: var(--warn); white-space: normal; }
+.pill.new { background: var(--good-soft); border-color: var(--good); color: var(--good); font-size: 11px; }
+.why { font-size: 14px; }
+.notice { font-size: 13px; padding: 8px 10px; border-radius: 6px; border: 1px solid var(--line); }
+.notice.wait { background: var(--warn-soft); border-color: var(--warn); color: var(--warn); }
+.notice.bad { background: var(--bad-soft); border-color: var(--bad); color: var(--bad); }
+.notice.good { background: var(--good-soft); border-color: var(--good); color: var(--good); }
+.bad-text { color: var(--bad); }
+
+.resume { border-top: 1px solid var(--line); padding-top: 10px; display: flex; flex-direction: column; gap: 8px; }
+.resume summary, .notes summary { cursor: pointer; font-size: 13px; }
+.resume .rtitle { font-weight: 600; font-size: 13px; margin-top: 6px; }
+.resume ul { margin: 4px 0 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; font-size: 14px; max-width: 65ch; }
+.resume .pdf { margin-top: 10px; font-size: 13px; }
+.notes p { font-size: 13px; color: var(--muted); margin-top: 6px; overflow-wrap: anywhere; max-width: 70ch; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.btn, select, input[type="text"] { font: inherit; font-size: 14px; border-radius: 6px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 7px 12px; min-height: 38px; }
+.btn { cursor: pointer; font-weight: 500; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn.quiet { min-height: 0; padding: 2px 8px; font-size: 13px; background: transparent; color: inherit; border-color: currentColor; margin-left: 6px; }
+.btn:disabled, select:disabled { opacity: 0.5; cursor: not-allowed; }
+.sel { margin-left: auto; }
+.sel select { max-width: 100%; }
+.note { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.note label { font-size: 13px; width: 100%; }
+.note input { flex: 1 1 220px; min-width: 0; }
+
+.lines { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.lines li { padding: 8px 0; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.lines li:last-child { border-bottom: 0; }
+.li-main { font-size: 14px; overflow-wrap: anywhere; }
+.li-sub { font-size: 13px; color: var(--muted); overflow-wrap: anywhere; }
+.more { padding-top: 8px; }
+#toast { position: fixed; left: 16px; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); margin: 0 auto; max-width: 520px; background: var(--ink); color: var(--bg); padding: 10px 14px; border-radius: 8px; font-size: 14px; }
+@media (prefers-reduced-motion: no-preference) { .card { transition: border-color 0.15s; } }
+</style>
+<div class="wrap">
+  <div class="top"><h1>Morning Tracker</h1><span class="sub" id="sub"></span></div>
+  <div id="app"></div>
+</div>
+<div id="toast" role="status" hidden></div>
+<script type="application/json" id="snapshot">__SNAPSHOT__</script>
+<script>
+/*__CORE__*/
+(function () {
+  var snapshot = JSON.parse(document.getElementById('snapshot').textContent);
+  var app = document.getElementById('app');
+  var queue = {};
+  var db = null;
+  var writable = false;
+  var busy = {};
+  var ui = { open: {}, notes: {}, noteOpen: {} };
+  try { ui.open = JSON.parse(localStorage.getItem('mt-open') || '{}') || {}; } catch (e) {}
+
+  document.getElementById('sub').textContent = (snapshot.rows || []).length + ' roles tracked · run ' + ((snapshot.run && snapshot.run.id) || 'none yet');
+
+  function draw() {
+    var active = document.activeElement && document.activeElement.id;
+    app.innerHTML = renderHTML(viewModel(snapshot, queue, Date.now()), ui, writable);
+    if (active) { var el = document.getElementById(active); if (el) el.focus(); }
+  }
+  function toast(msg) {
+    var t = document.getElementById('toast');
+    t.textContent = msg; t.hidden = false;
+    clearTimeout(toast.timer); toast.timer = setTimeout(function () { t.hidden = true; }, 5000);
+  }
+  function rowOf(n) { return (snapshot.rows || []).filter(function (r) { return String(r.row) === String(n); })[0]; }
+
+  // One write at a time per document. The card changes at once; if the save is
+  // refused the card goes back and says so.
+  function write(op) {
+    if (!db || busy[op.id]) return;
+    var before = queue;
+    busy[op.id] = true;
+    queue = applyOp(queue, op);
+    draw();
+    var ref = db.collection('queue').doc(op.id);
+    (op.type === 'delete' ? ref.delete() : ref.set(op.doc)).then(function () {
+      delete busy[op.id];
+    }, function (e) {
+      delete busy[op.id];
+      queue = before;
+      if (e && (e.code === 'invalid_argument' || e.code === 'revoked' || e.code === 'not_granted')) writable = false;
+      draw();
+      toast(e && e.code === 'quota_exceeded' ? 'Not saved: the page database is full.' : 'Not saved. Check the connection and try again.');
+    });
+  }
+
+  app.addEventListener('click', function (ev) {
+    var b = ev.target.closest('[data-act]');
+    if (!b || b.tagName === 'SELECT' || b.disabled) return;
+    var act = b.getAttribute('data-act');
+    var row = rowOf(b.getAttribute('data-row'));
+    if (!row) return;
+    var now = new Date().toISOString();
+    if (act === 'status') {
+      var ch = makeStatusChange(row, b.getAttribute('data-to'), now);
+      write({ type: 'set', id: ch.id, doc: ch.doc });
+    } else if (act === 'undo-status') write({ type: 'delete', id: statusDocId(row.row) });
+    else if (act === 'approve') { var a = makeReview(row.resume, 'approve', '', now); write({ type: 'set', id: a.id, doc: a.doc }); }
+    else if (act === 'needs') { ui.noteOpen[row.row] = !ui.noteOpen[row.row]; draw(); var i = document.getElementById('note-' + row.row); if (i) i.focus(); }
+    else if (act === 'send-note') {
+      var note = (ui.notes[row.row] || '').trim();
+      if (!note) { toast('Write one line saying what should change.'); return; }
+      var n = makeReview(row.resume, 'needs_change', note, now);
+      ui.noteOpen[row.row] = false;
+      write({ type: 'set', id: n.id, doc: n.doc });
+    } else if (act === 'undo-review') write({ type: 'delete', id: reviewDocId(row.resume.key) });
+  });
+  app.addEventListener('change', function (ev) {
+    var s = ev.target;
+    if (s.getAttribute('data-act') !== 'status-select' || !s.value) return;
+    var row = rowOf(s.getAttribute('data-row'));
+    if (!row) return;
+    var ch = makeStatusChange(row, s.value, new Date().toISOString());
+    write({ type: 'set', id: ch.id, doc: ch.doc });
+  });
+  app.addEventListener('input', function (ev) {
+    var m = /^note-(.+)$/.exec(ev.target.id || '');
+    if (m) ui.notes[m[1]] = ev.target.value;
+  });
+  app.addEventListener('keydown', function (ev) {
+    if (ev.key !== 'Enter') return;
+    var m = /^note-(.+)$/.exec(ev.target.id || '');
+    if (!m) return;
+    var send = app.querySelector('[data-act="send-note"][data-row="' + m[1] + '"]');
+    if (send) send.click();
+  });
+  app.addEventListener('toggle', function (ev) {
+    var k = ev.target.getAttribute && ev.target.getAttribute('data-key');
+    if (!k) return;
+    ui.open[k] = ev.target.open;
+    try { localStorage.setItem('mt-open', JSON.stringify(ui.open)); } catch (e) {}
+  }, true);
+
+  draw();
+  var claude = window.claude;
+  if (claude && claude.use) {
+    claude.use('db').then(function (d) {
+      if (!d) return;
+      db = d;
+      d.collection('queue').onSnapshot(function (snap) {
+        var next = {};
+        snap.docs.forEach(function (doc) { next[doc.id] = doc.data(); });
+        // Keep this view's own unconfirmed writes on screen until they settle.
+        Object.keys(busy).forEach(function (id) { if (queue[id]) next[id] = queue[id]; else delete next[id]; });
+        queue = next;
+        writable = true;
+        draw();
+      }, function () { writable = false; draw(); });
+    });
+  }
+  setInterval(draw, 15 * 60 * 1000);
+})();
+</script>

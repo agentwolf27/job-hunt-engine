@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <!-- 05:45 daily: zero-token scan, named-company check, knock-out rules. No Claude involved. Template: scripts/install-schedule.sh fills in __REPO_DIR__ and __PATH__ and installs it -->
+  <key>Label</key>            <string>com.jobhunt.scan</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>scripts/morning/dawn.sh</string>
+  </array>
+  <key>WorkingDirectory</key> <string>__REPO_DIR__</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key> <string>__PATH__</string>
+  </dict>
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key>    <integer>5</integer>
+    <key>Minute</key>  <integer>45</integer>
+  </dict>
+  <key>StandardOutPath</key>   <string>__REPO_DIR__/logs/scan.log</string>
+  <key>StandardErrorPath</key> <string>__REPO_DIR__/logs/scan.log</string>
+</dict>
+</plist>
